@@ -32,6 +32,7 @@ async def get_spec_tank(id: UUID):
     for tank in list:
         if tank.id == id:
             return tank
+    raise HTTPException(status_code=404, detail="Tank Not Found")
 
 @app.post("/tank")
 async def post_tank(tank_request: Tank):
